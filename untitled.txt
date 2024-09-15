@@ -1,0 +1,118 @@
+Tentu! Berikut adalah kode HTML yang sudah digabungkan dengan CSS dan ditambahkan beberapa kutipan untuk meningkatkan tampilan halaman web:
+
+**HTML (index.html):**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web dengan Menu dan Foto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+            margin: 0 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .quote {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-left: 5px solid #333;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Selamat Datang di Halaman Web Kami</h1>
+        <p>Ini adalah halaman pembukaan yang keren!</p>
+        <div class="quote">
+            "Kualitas adalah kualitas dari semua yang kita lakukan." – Michael LeBoeuf
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Galeri Foto</h2>
+        <div class="gallery">
+            <img src="foto1.jpg" alt="Foto 1">
+            <img src="foto2.jpg" alt="Foto 2">
+            <img src="foto3.jpg" alt="Foto 3">
+        </div>
+        <div class="quote">
+            "Seni bukanlah apa yang kita lihat, tetapi apa yang kita buat orang lain lihat." – Edgar Degas
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hak Cipta Terpelihara</p>
+    </footer>
+</body>
+</html>
+```
+
+Dengan kode ini, Anda memiliki halaman web dengan layout yang bersih, menu navigasi, beberapa foto dalam galeri, dan kutipan yang memberikan sentuhan tambahan pada tampilan halaman. Anda bisa mengganti teks kutipan dan foto sesuai dengan kebutuhan Anda.

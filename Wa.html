@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-around;
+            background-color: #075e54;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-item {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .header-item.active {
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 60px;
+        }
+
+        .contacts {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid #ddd;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .contact {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .contact:hover {
+            background-color: #f0f0f0;
+        }
+
+        .content-section {
+            flex: 1;
+            padding: 20px;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chat-messages {
+            height: 400px;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chat-input button {
+            padding: 10px;
+            border: none;
+            background-color: #075e54;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div id="menu-chat" class="header-item active" onclick="showSection('chat')">Chat</div>
+        <div id="menu-status" class="header-item" onclick="showSection('status')">Status</div>
+        <div id="menu-calls" class="header-item" onclick="showSection('calls')">Panggilan</div>
+    </div>
+    <div class="container">
+        <div id="contacts" class="contacts">
+            <div class="contact" onclick="openChat('Contact 1')">Kontak 1</div>
+            <div class="contact" onclick="openChat('Contact 2')">Kontak 2</div>
+            <div class="contact" onclick="openChat('Contact 3')">Kontak 3</div>
+            <div class="contact" onclick="openChat('Contact 4')">Kontak 4</div>
+            <div class="contact" onclick="openChat('Contact 5')">Kontak 5</div>
+        </div>
+        <div id="chat" class="content-section active">
+            <div id="chat-header" class="chat-header"></div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Ketik pesan...">
+                <button onclick="sendMessage()">Kirim</button>
+            </div>
+        </div>
+        <div id="status" class="content-section">
+            <h2>Status</h2>
+            <!-- Konten Status di sini -->
+        </div>
+        <div id="calls" class="content-section">
+            <h2>Panggilan</h2>
+            <!-- Konten Panggilan di sini -->
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const menuItems = document.querySelectorAll('.header-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById(`menu-${sectionId}`).classList.add('active');
+        }
+
+        function openChat(contactName) {
+            document.getElementById('chat-header').innerText = contactName;
+            document.getElementById('chat').classList.add('active');
+            document.getElementById('contacts').style.display = 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const message = input.value.trim();
+            if (message) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = message;
+                document.getElementById('chat-messages').appendChild(messageElement);
+                input.value = '';
+                document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>

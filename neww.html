@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete UI Webpage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel {
+            width: 100%;
+            height: 60vh;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .carousel-content {
+            position: absolute;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .carousel h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .carousel-button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-button:hover {
+            background: #555;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-button-control {
+            background: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-button-control:hover {
+            background: #ccc;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 30%;
+            min-width: 250px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .testimonials {
+            background: #333;
+            color: #fff;
+        }
+
+        .testimonial-card {
+            background: #444;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 30%;
+            min-width: 250px;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-card .author {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            padding: 0.7rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            width: 50%;
+            padding: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                height: 100vh;
+                background: #333;
+                justify-content: center;
+                align-items: center;
+                transition: transform 0.5s ease-in;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links.nav-active {
+                transform: translateX(0);
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .burger.toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.toggle .line2 {
+                opacity: 0;
+            }
+
+            .burger.toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MyWebsite</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="carousel">
+        <div class="carousel-content">
+            <h1>Welcome to Our Website</h1>
+            <p>Delivering Excellence in Every Project</p>
+            <button class="carousel-button">Learn More</button>
+        </div>
+        <div class="carousel-buttons">
+            <button class="carousel-button-control" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="carousel-button-control" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We create beautiful and functional websites that help businesses succeed online.</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Web Design</h3>
+                <p>Creating visually appealing and user-friendly designs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Developing high-performance websites.</p>
+            </div>
+            <div class="service-card">
+                <h3>SEO Optimization</h3>
+                <p>Optimizing your website to rank higher on search engines.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+        <h2>Testimonials</h2>
+        <div class="services">
+            <div class="testimonial-card">
+                <p>"The team was professional and delivered an excellent product. Highly recommend!"</p>
+                <div class="author">- John Doe</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Great service and outstanding results. Will work with them again."</p>
+                <div class="author">- Jane Smith</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"They exceeded our expectations and helped our business grow online."</p>
+                <div class="author">- Mark Wilson</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out for any inquiries or collaboration opportunities.</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel img');
+        const changeSlide = (n) => {
+            showSlides(slideIndex += n);
+        }
+
+        const showSlides = (n) => {
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlides(slideIndex);
+        });
+    </script>
+</body>
+</html>

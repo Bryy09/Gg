@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e5ddd5;
+        }
+
+        header {
+            background-color: #075E54;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            background-color: #128C7E;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        main section {
+            display: none;
+        }
+
+        main section.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #075E54;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WhatsApp Clone</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#chat" onclick="showSection('chat')">Chat</a></li>
+            <li><a href="#status" onclick="showSection('status')">Status</a></li>
+            <li><a href="#panggilan" onclick="showSection('panggilan')">Panggilan</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="chat" class="active">
+            <h2>Chat</h2>
+            <p>Ini adalah halaman Chat.</p>
+        </section>
+        <section id="status">
+            <h2>Status</h2>
+            <p>Ini adalah halaman Status.</p>
+        </section>
+        <section id="panggilan">
+            <h2>Panggilan</h2>
+            <p>Ini adalah halaman Panggilan.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 WhatsApp Clone. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

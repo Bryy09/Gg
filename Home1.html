@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web Estetis</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('wallpaper.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .sidebar {
+            width: 150px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+        .sidebar h2 {
+            margin: 0;
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #ecdbba;
+        }
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        .sidebar a:hover {
+            background-color: #ecdbba;
+            color: #34495e;
+        }
+        .main-content {
+            margin-left: 150px;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-grow: 1;
+        }
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            color: #ecf0f1;
+            position: fixed;
+            width: calc(100% - 150px);
+            left: 150px;
+            top: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .navbar nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        .navbar nav a:hover {
+            color: #ecdbba;
+        }
+        .content {
+            margin-top: 70px;
+        }
+        .welcome {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .welcome img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#home">Home</a>
+        <a href="Personal.html">Personal</a>
+        <a href="gallery.html">Galley</a>
+        <a href="foto.html">Foto</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="main-content">
+        <div class="navbar">
+            <h1>My Website</h1>
+            <nav>
+                <a href="#profile">Profile</a>
+                <a href="#settings">Settings</a>
+                <a href="#logout">Logout</a>
+            </nav>
+        </div>
+        <div class="content">
+            <div class="welcome">
+                <h1>Selamat Datang di Halaman Web Kami</h1>
+                <p>Ini adalah halaman utama. Klik pada menu di sebelah kiri untuk menavigasi.</p>
+                <img src="aku.jpg" alt="Welcome Image">
+                <img src="kamu.jpg" alt="Welcome Image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
